@@ -1,13 +1,14 @@
-import React from 'react'
+import React from 'react';
 import millify from 'millify';
 import { Typography, Row, Col, Statistic } from 'antd';
 import { Link } from 'react-router-dom';
-
+import { useGetCryptosQuery } from '../services/CryptoApi';
 
 const HomePage = () => {
+  const { data, isFetching } = useGetCryptosQuery();
+  console.log(data);
 
-  const {Title} =Typography
-
+  const { Title } = Typography;
   return (
     <>
       <Title level={2} className="heading">
@@ -28,12 +29,11 @@ const HomePage = () => {
           <Statistic title="Total 24h Volume" value="5" />
         </Col>
         <Col span={12}>
-          <Statistic title="Total Markets"  value="5" />
+          <Statistic title="Total Markets" value="5" />
         </Col>
-       
       </Row>
     </>
   );
-}
+};
 
-export default HomePage
+export default HomePage;
