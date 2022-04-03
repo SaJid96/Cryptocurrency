@@ -2,8 +2,10 @@ import React from 'react';
 
 import { Switch, Link, Route } from 'react-router-dom';
 import { Layout, Space, Typography } from 'antd';
-import { Navbar } from './components';
+import { Navbar,HomePage,Cryptocurrencies,News,CryptoDetails,Exchanges } from './components';
 import './App.css';
+
+
 const App = () => {
   return (
     <div className="app">
