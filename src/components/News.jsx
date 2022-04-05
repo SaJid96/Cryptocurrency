@@ -14,23 +14,31 @@ const News = ({simplified}) => {
    const {data}=useGetCryptosQuery(10);
    const {data:cryptoNews}=useGetCryptoNewsQuery({newsCategory,count:simplified ? 6 :12})
 
-  return 
-  (
-  <Row gutter={[24,24]}>
-    {
-      !simplified && (
+   if(!cryptoNews?.value) return 'Loading...'
+  return (
+  <Row gutter={[24, 24]}>
+    {!simplified && (
+      <Col span={24}>
+        <Select
+          showSearch
+          className="select-news"
+          placeholder="select a Crypto"
+          optionFilterProp="children"
+          onChange={(value) => setNewsCategory(value)}
+          filterOption={(input, option) =>
+            option.children.toLowerCase().indexOf(input.toLowerCase()) >= 0
+          }
+        >
+          <Option value="Cryptocurrency">Cryptocurrency</Option>
 
-        <Col span={24}>
-        
-        
-
-
-        </Col>
-
-      )
-    }
-    </Row>
-  )
-};
+          {data?.data?.coins?.map((currency) => (
+            <Option value={currency.name}>{currency.name}</Option>
+          ))}
+        </Select>
+      </Col>
+    )}
+   
+  </Row>
+)}
 
 export default News;
