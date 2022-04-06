@@ -16,28 +16,30 @@ const LineChart = ({ coinHistory, currentPrice, coinName }) => {
       new Date(coinHistory?.data?.history[i].timestamp).toLocaleDateString()
     );
   }
-  const data = {
-    labels: coinTimestamp,
-    datasets: [
-      {
-        label: 'Price In USD',
-        data: coinPrice,
-        fill: false,
-        backgroundColor: '#0071bd',
-        borderColor: '#0071bd',
-      },
-    ],
-  };
+   const data = {
+     labels: coinTimestamp,
+     datasets: [
+       {
+         label: 'Price In USD',
+         data: coinPrice,
+         fill: false,
+         backgroundColor: '#0071bd',
+         borderColor: '#0071bd',
+       },
+     ],
+   };
 
-  const options = {
-    scales: {
-      scales: {
-        y: {
-          min: 0,
-        },
-      },
-    },
-  };
+   const options = {
+     scales: {
+       yAxes: [
+         {
+           ticks: {
+             beginAtZero: true,
+           },
+         },
+       ],
+     },
+   };
 
   return (
     <>
