@@ -1,4 +1,4 @@
- 
+ Application Url: https://crypto-currency-verse.netlify.app/
 In depth data About all Cryptocurrencies, Crypto Market & popular Cryptocurrencies News
 
 # Getting Started with Create React App
